@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <style>
+      img {
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+      }
+      </style>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Covid Vaccine Availability Notifier</title>
+    <link rel="shortcut icon" type="image/jpg" href="img/favicon.png"/>
+    
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/css/bootstrap-datepicker3.min.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+    <link rel="stylesheet" href="styles.css" />
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datepicker/1.7.1/js/bootstrap-datepicker.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
+    <!-- Recaptcha -->
+    <script src="https://www.google.com/recaptcha/api.js?render=6Lc1VscaAAAAADWDOCzhs6EZUekK-7CpzveQUpsm"></script>
+		<script>
+		grecaptcha.ready(function() {
+			grecaptcha.execute('6Lc1VscaAAAAADWDOCzhs6EZUekK-7CpzveQUpsm', {action: 'submit'}).then(function(token) {
+			   var recaptchaResponse = document.getElementById('recaptchaResponse');
+			   recaptchaResponse.value = token;
+			});
+		});
+
+    </script>
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-196602757-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'UA-196602757-1');
+</script>
+    
+  </head>
+  <body>
+    <nav class="navbar">
+      <!-- <a href="#" class="nav-logo"><img src="img/logo-3.png" alt="getcowinslot.in" width="150" height="132"></a> -->
+      <ul class="nav-menu">
+        <li class="nav-item">
+          <a href="https://www.cowin.gov.in/home" class="nav-link">Cowin</a>
+        </li>
+        <li class="nav-item">
+          <a
+            href="https://twitter.com/hkh4cks"
+            class="nav-link"
+            >Twitter</a
+          >
+        </li>
+        <li class="nav-item">
+          <a href="https://external.sprinklr.com/" class="nav-link"
+            >Resources</a
+          >
+        </li>
+      </ul>
+      <div class="hamburger">
+        <span class="bar"></span>
+        <span class="bar"></span>
+        <span class="bar"></span>
+      </div>
+    </nav>
+
+
+    <div class="form-container">
+      <h6 style="font-family: arial;
+           font-size: 14pt;
+           color: crimson;
+           text-align: center;"> Due to overwhelming traffic on the site, we have also released a browser only functionality <a href="client-notify.html">Here</a>. We advise you not to rely on email notifications at the moment.</h6>
+
+      <form action="/form" method="POST" class="form">
+      <img src="img/logo-3.png" class="center" alt="getcowinslot.in" width="150" height="132">
+        <h2 class="heading">CoWin Slot Notifier</h2>
+        <h6 style="font-family: arial;
+        font-size: 10pt;
+        text-align: center;">Notifies when the slot opens up for your pincode and specified date</h6>
+        <fieldset>
+          <input
+            placeholder="Email Address (Comma separated for multiple emails)"
+            tabindex="2"
+            required
+            name="email"
+          />
+        </fieldset>
+          <fieldset>
+            <div class="input-group date form-group" id="datepicker">
+              <input type="text" class="form-control" id="date" name="date" placeholder="Select Multiple days" required />
+              <span class="input-group-addon"><i class="glyphicon glyphicon-calendar"></i><span class="count"></span></span>
+          </div>
+          </fieldset>
+        <fieldset>
+          <input placeholder="Pin Code (Comma separated for multiple pincodes)" type="text" tabindex="4" name="pincode" pattern="^[1-9][0-9]{5}(,(\s)*[1-9][0-9]{5})*$" title="Pincode should be 6 digits" required />
+        </fieldset>
+        <fieldset>
+          <div class="tag">Age: 18 - 44</div>
+          <input type="checkbox" id="age-18" class="regular-checkbox" value="18" name="age" /><label for="age-18"></label>
+        </fieldset>
+        <fieldset>
+          <div class="tag">Age: 45+</div>
+          <input type="checkbox" id="age-45" class="regular-checkbox" value="45" name="age"/> <label for="age-45"></label>
+        </fieldset>
+        <fieldset>
+          <button
+            name="submit"
+            type="submit"
+            id="contact-submit"
+            data-submit="...Sending"
+          > Submit
+          </button>
+        </fieldset>
+        <input type="hidden" name="recaptchaResponse" id="recaptchaResponse">
+      </form>
+    </div>
+
+    <h6 style="font-family: arial;
+           font-size: 12pt;
+           text-align: center;"><b>We do not sell your data, nor do we store it after use!</b></h6>
+
+    <script src="/index.js"></script>
+  </body>
+  <!-- <a href='https://pngtree.com/so/corona-virus'>corona virus png from pngtree.com</a> Logo credit -->
+</html>
