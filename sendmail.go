@@ -26,7 +26,11 @@ type smtpServer struct {
 var database *sql.DB
 
 func main() {
-	database, _ = sql.Open("sqlite3", "getcowinslot/data/db/user_data.db")
+	database, err := sql.Open("sqlite3", "getcowinslot/data/db/user_data.db")
+	if err != nil {
+		fmt.Println("Database Error: %v", err)
+	}
+	defer database.Close()
 	initDB()
 }
 
