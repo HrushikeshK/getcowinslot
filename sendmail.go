@@ -7,6 +7,7 @@ import (
 	"io/ioutil"
 	"net/smtp"
 	"os"
+	"strings"
 	"time"
 )
 
@@ -40,12 +41,11 @@ func initDB() {
 
 	for rows.Next() {
 		rows.Scan(&email)
-		emailArr := []string{email}
+		emailArr := strings.Split(email, ",")
 		go sendMail(emailArr)
 		time.Sleep(120 * time.Second)
 	}
 
-	return
 }
 
 // Function to send Email
